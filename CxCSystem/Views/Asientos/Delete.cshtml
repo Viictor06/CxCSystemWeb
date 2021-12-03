@@ -1,0 +1,80 @@
+﻿@model CxCSystem.Models.Asientos
+
+@{
+    ViewBag.Title = "Asientos";
+}
+
+<h2>Borrar asiento</h2>
+
+<h3>Estas seguro que deseas eliminar este asiento?</h3>
+<div>
+    <h4>Asientos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("ID Asiento")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Asiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cuenta)
+        </dd>
+
+        <dt>
+            @Html.Label("Tipo de movimiento")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_movimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.Label("Cliente")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@model CxCSystem.Models.Clientes
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Detalles clientes</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cédula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cédula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Limite_credit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limite_credit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
