@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CxCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asientos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Asiento" MaxLength="15" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cliente_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Asientos__Client__45F365D3" FromRole="Asientos" ToRole="Clientes" />
+    <Property Name="CuentaDB" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CuentaCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MontoDB" Type="Int32" Nullable="false" />
+    <Property Name="MontoCR" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cédula" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Limite_credit" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Asientos" Relationship="Self.FK__Asientos__Client__45F365D3" FromRole="Clientes" ToRole="Asientos" />
+    <NavigationProperty Name="Transacciones" Relationship="Self.FK__Transacci__Clien__4222D4EF" FromRole="Clientes" ToRole="Transacciones" />
+  </EntityType>
+  <EntityType Name="Tipos_Documentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cuenta_contable" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Transacciones" Relationship="Self.FK__Transacci__TipoD__412EB0B6" FromRole="Tipos_Documentos" ToRole="Transacciones" />
+  </EntityType>
+  <EntityType Name="Transacciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_transaccion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_Mov" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoDoc_ID" Type="Int32" Nullable="false" />
+    <Property Name="Num_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cliente_ID" Type="Int32" Nullable="false" />
+    <Property Name="Monto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Transacci__Clien__4222D4EF" FromRole="Transacciones" ToRole="Clientes" />
+    <NavigationProperty Name="Tipos_Documentos" Relationship="Self.FK__Transacci__TipoD__412EB0B6" FromRole="Transacciones" ToRole="Tipos_Documentos" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Asientos__Client__45F365D3">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Asientos" Type="Self.Asientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asientos">
+        <PropertyRef Name="Cliente_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacci__Clien__4222D4EF">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transacciones">
+        <PropertyRef Name="Cliente_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacci__TipoD__412EB0B6">
+    <End Role="Tipos_Documentos" Type="Self.Tipos_Documentos" Multiplicity="1" />
+    <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos_Documentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transacciones">
+        <PropertyRef Name="TipoDoc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CxCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asientos" EntityType="Self.Asientos" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Tipos_Documentos" EntityType="Self.Tipos_Documentos" />
+    <EntitySet Name="Transacciones" EntityType="Self.Transacciones" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Asientos__Client__45F365D3" Association="Self.FK__Asientos__Client__45F365D3">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Asientos" EntitySet="Asientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacci__Clien__4222D4EF" Association="Self.FK__Transacci__Clien__4222D4EF">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Transacciones" EntitySet="Transacciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacci__TipoD__412EB0B6" Association="Self.FK__Transacci__TipoD__412EB0B6">
+      <End Role="Tipos_Documentos" EntitySet="Tipos_Documentos" />
+      <End Role="Transacciones" EntitySet="Transacciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
