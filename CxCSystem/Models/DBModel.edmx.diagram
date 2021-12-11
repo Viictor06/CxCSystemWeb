@@ -6,10 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="78d78bbf37b74d90971d08a294abdf17" Name="Diagram1">
         <EntityTypeShape EntityType="CxCModel.Asientos" Width="1.5" PointX="1.375" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CxCModel.Clientes" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCModel.Clientes" Width="1.5" PointX="1.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCModel.Tipos_Documentos" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCModel.Transacciones" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CxCModel.Users" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCModel.Users" Width="1.5" PointX="1.375" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="CxCModel.FK__Asientos__Client__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="CxCModel.FK__Transacci__Clien__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="CxCModel.FK__Transacci__TipoD__412EB0B6" ManuallyRouted="false" />

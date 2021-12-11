@@ -5,14 +5,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Id_Asiento" Type="varchar" MaxLength="15" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Id_Asiento" Type="varchar" MaxLength="15" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Cliente_ID" Type="int" Nullable="false" />
-    <Property Name="Cuenta" Type="varchar" MaxLength="50" />
-    <Property Name="Tipo_movimiento" Type="varchar" MaxLength="2" Nullable="false" />
-    <Property Name="Fecha" Type="date" Nullable="false" />
-    <Property Name="Monto" Type="int" Nullable="false" />
-    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="CuentaDB" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaCR" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MontoDB" Type="int" Nullable="false" />
+    <Property Name="MontoCR" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Clientes">
     <Key>

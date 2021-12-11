@@ -4,15 +4,14 @@
     <EntitySetMapping Name="Asientos">
       <EntityTypeMapping TypeName="CxCModel.Asientos">
         <MappingFragment StoreEntitySet="Asientos">
+          <ScalarProperty Name="MontoCR" ColumnName="MontoCR" />
+          <ScalarProperty Name="MontoDB" ColumnName="MontoDB" />
+          <ScalarProperty Name="CuentaCR" ColumnName="CuentaCR" />
+          <ScalarProperty Name="CuentaDB" ColumnName="CuentaDB" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Id_Asiento" ColumnName="Id_Asiento" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Cliente_ID" ColumnName="Cliente_ID" />
-          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
-          <ScalarProperty Name="Tipo_movimiento" ColumnName="Tipo_movimiento" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

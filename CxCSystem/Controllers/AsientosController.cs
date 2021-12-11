@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Net.Http.Formatting;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using CxCSystem.Models;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace CxCSystem.Controllers
 {
@@ -48,7 +52,7 @@ namespace CxCSystem.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Id_Asiento,Descripcion,Cliente_ID,Cuenta,Tipo_movimiento,Fecha,Monto,Estado")] Asientos asientos)
+        public ActionResult Create([Bind(Include = "Id,Id_Asiento,Descripcion,Cliente_ID,CuentaDB,CuentaCR,MontoDB,MontoCR")] Asientos asientos)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +86,7 @@ namespace CxCSystem.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Id_Asiento,Descripcion,Cliente_ID,Cuenta,Tipo_movimiento,Fecha,Monto,Estado")] Asientos asientos)
+        public ActionResult Edit([Bind(Include = "Id,Id_Asiento,Descripcion,Cliente_ID,CuentaDB,CuentaCR,MontoDB,MontoCR")] Asientos asientos)
         {
             if (ModelState.IsValid)
             {

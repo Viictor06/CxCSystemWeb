@@ -18,11 +18,10 @@ namespace CxCSystem.Models
         public string Id_Asiento { get; set; }
         public string Descripcion { get; set; }
         public int Cliente_ID { get; set; }
-        public string Cuenta { get; set; }
-        public string Tipo_movimiento { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public int Monto { get; set; }
-        public bool Estado { get; set; }
+        public string CuentaDB { get; set; }
+        public string CuentaCR { get; set; }
+        public int MontoDB { get; set; }
+        public int MontoCR { get; set; }
     
         public virtual Clientes Clientes { get; set; }
     }

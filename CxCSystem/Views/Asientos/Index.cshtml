@@ -18,16 +18,16 @@
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cuenta)
+            @Html.Label("Cuenta debito")
         </th>
         <th>
-            @Html.Label("Tipo de movimiento")
+            @Html.Label("Cuenta credito")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.Label("Monto Debito")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Monto)
+            @Html.Label("Monto Credito")
         </th>
         <th>
             @Html.Label("Cliente")
@@ -44,16 +44,16 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Cuenta)
+            @Html.DisplayFor(modelItem => item.CuentaDB)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tipo_movimiento)
+            @Html.DisplayFor(modelItem => item.CuentaCR)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
+            @Html.DisplayFor(modelItem => item.MontoDB)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Monto)
+            @Html.DisplayFor(modelItem => item.MontoCR)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Clientes.Nombre)
